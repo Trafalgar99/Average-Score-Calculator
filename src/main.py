@@ -35,12 +35,14 @@ def write_in_file(student_info):
 
 
 def start():
-
+    print("成绩计算系统使用方法：")
+    print("请在本文件的同一目录下的file文件夹内传入成绩单，然后按下回车键即可开始计算！")
+    input("")
     # 预处理file文件夹里的所有文件，如果是以xls结尾，则将他们转换为xlsx
     tool.multi_xls2xlsx(config.dir_name)
     # 获取所有文件名
     file_list = tool.get_file_list(config.dir_name)
-
+    print("开始了")
     for file in file_list:
         wb = load_workbook(filename=file)
         sheet = wb[wb.sheetnames[0]]
@@ -55,6 +57,7 @@ def start():
         write_in_file(student_info)
         print(f'已写入：{student_info["姓名"]}')
     print("任务已完成! 请查看《统计结果.xlsx》")
+    input("输入回车退出！")
 
 
 if __name__ == "__main__":
