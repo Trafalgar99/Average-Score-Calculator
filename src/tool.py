@@ -102,7 +102,7 @@ def calculate_average(name, lessons_dict, condition):
                 n = float(config.rank2score[lesson["成绩"]])
             sum += n * float(lesson["学分"])
             ratio += float(lesson["学分"])
-    print(f'{name}-计算完成')
+    print(f'已计算完成: {name}')
     return round(sum / ratio, 2)
 
 
@@ -121,5 +121,5 @@ def multi_xls2xlsx(dir_name):
             if file.endswith(".xls"):
                 file_path = os.path.abspath(root + file)
                 one_xls2xlsx(file_path, excel)
-                print(f"finish {file}")
+                print(f"格式转换成功: {file}")
     excel.Quit()
